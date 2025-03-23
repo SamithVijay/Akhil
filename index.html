@@ -9,7 +9,504 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind removed -->
+    <style>
+      /* Global Styles */
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      /* Header */
+      header {
+        background: #f5f1e6;
+        padding: 15px 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+      }
+      .logo img {
+        height: 80px;
+      }
+      /* Hamburger menu icon (mobile only) */
+      .hamburger {
+        display: none;
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: #333;
+      }
+      /* Navigation links */
+      .nav-links {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+      }
+      .nav-links li {
+        margin: 0 15px;
+      }
+      .nav-links a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+      }
+      .contact-btn {
+        background: #ff9800;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+
+      /* Hero Section */
+      .hero {
+        position: relative;
+        height: 100vh;
+        background: url("bg1.jpg") no-repeat top center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        margin-top: 80px; /* pushes image below fixed header */
+      }
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+      }
+      .hero-text {
+        position: relative;
+        z-index: 1;
+      }
+      .cta-button {
+        display: inline-block;
+        background: #ff9800;
+        color: white;
+        padding: 10px 20px;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        margin-top: 20px;
+      }
+
+      /* Difference & Features Section */
+      .difference {
+        padding: 80px 20px;
+        background: #fff;
+        text-align: left;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .features {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      .feature {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        flex: 1;
+        padding: 10px;
+      }
+      .icon {
+        font-size: 30px;
+        color: #d4a45f;
+      }
+      .feature-text {
+        text-align: left;
+      }
+      .feature-text h3 {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 0;
+      }
+      .feature-text p {
+        font-size: 14px;
+        color: #666;
+        margin: 5px 0 0;
+      }
+
+      /* Content Section */
+      .content-section {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 32px 20px;
+      }
+      .grid-two {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        align-items: center;
+      }
+      .grid-two.mt-6 {
+        margin-top: 24px;
+      }
+      .box {
+        background: #fff;
+        padding: 32px;
+      }
+      .section-subtitle {
+        color: #d97706;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+      }
+      .section-title {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+        line-height: 1.2;
+        margin-bottom: 16px;
+      }
+      .section-paragraph {
+        color: #666;
+        margin-top: 16px;
+      }
+      .btn {
+        display: inline-block;
+        background: #b45309;
+        color: #fff;
+        padding: 12px 24px;
+        border-radius: 5px;
+        font-weight: bold;
+        text-decoration: none;
+        margin-top: 24px;
+      }
+      .responsive-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Clients Section */
+      .clients-section {
+        overflow: hidden;
+        background: #f8f8f8;
+        padding: 40px 0;
+      }
+      .logo-slider {
+        display: flex;
+        gap: 40px;
+        animation: scroll 50s linear infinite;
+        width: max-content;
+      }
+      .logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .logo-container img {
+        width: 200px;
+        height: auto;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease, transform 0.3s ease;
+      }
+      .logo-container img:hover {
+        filter: grayscale(0%);
+        transform: scale(1.1);
+      }
+      @keyframes scroll {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-100%);
+        }
+      }
+      .logo-wrapper {
+        display: flex;
+        width: 200%;
+      }
+
+      /* Timeline Section */
+      .timeline-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 20px;
+        background-color: #f5f5f5;
+      }
+      .timeline-container {
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .timeline-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #d97706;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+      }
+      .timeline-image {
+        width: 100%;
+        max-width: 1000px;
+        height: auto;
+      }
+
+      /* Fullscreen Section */
+      .fullscreen-section {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #0b1c3f;
+        overflow: hidden;
+        padding: 20px;
+      }
+      .flex-container {
+        display: flex;
+        flex-direction: column;
+        max-width: 960px;
+        width: 100%;
+      }
+      @media (min-width: 992px) {
+        .flex-container {
+          flex-direction: row;
+          align-items: center;
+        }
+        .flex-container .half {
+          width: 50%;
+          padding: 20px;
+        }
+      }
+      .flex-container .half img {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      }
+      .flex-container .half.text-content {
+        color: #fff;
+        text-align: center;
+      }
+      @media (min-width: 992px) {
+        .flex-container .half.text-content {
+          text-align: left;
+        }
+      }
+      .flex-container .half.text-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 16px;
+      }
+      .flex-container .half.text-content p {
+        font-size: 1.125rem;
+        opacity: 0.8;
+        margin-bottom: 24px;
+      }
+      .btn-secondary {
+        background: #f59e0b;
+        color: #1e3a8a;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 32px 20px;
+      }
+      .contact-section h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 24px;
+      }
+      .map-container {
+        width: 100%;
+        height: 320px;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .grid-two-responsive {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 24px;
+      }
+      @media (min-width: 768px) {
+        .grid-two-responsive {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .contact-info .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .contact-info .contact-item h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        font-weight: bold;
+      }
+      .contact-info .contact-item p {
+        margin: 2px 0;
+      }
+      .contact-form {
+        background: #fff;
+        padding: 24px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 8px;
+        margin-top: 8px;
+        box-sizing: border-box;
+      }
+      .contact-form button {
+        background: #b45309;
+        color: #fff;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 4px;
+        font-weight: bold;
+        margin-top: 16px;
+        cursor: pointer;
+      }
+
+      /* Footer */
+      footer {
+        background: #1f2937;
+        color: #d1d5db;
+        padding: 40px 20px;
+      }
+      .footer-container {
+        max-width: 960px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 16px;
+        text-align: center;
+      }
+      @media (min-width: 768px) {
+        .footer-container {
+          grid-template-columns: repeat(4, 1fr);
+          text-align: left;
+        }
+      }
+      .footer-container img {
+        width: 96px;
+        margin-bottom: 8px;
+      }
+      .footer-container h3 {
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #fff;
+      }
+      .footer-container ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .footer-container ul li {
+        margin-bottom: 4px;
+      }
+      .footer-container ul li a {
+        text-decoration: none;
+        color: #d1d5db;
+        transition: color 0.3s ease;
+      }
+      .footer-container ul li a:hover {
+        color: #f59e0b;
+      }
+
+      /* Responsive Adjustments for Mobile (≤767px) */
+      @media (max-width: 767px) {
+        /* Stack grid-two layout to single column */
+        .grid-two {
+          grid-template-columns: 1fr;
+        }
+        /* Stack navigation items vertically & hide nav by default */
+        .nav-links {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          height: 100%;
+          width: 250px;
+          background: #f5f1e6;
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 60px 20px;
+          gap: 20px;
+          transition: right 0.3s ease;
+          z-index: 1500;
+        }
+        /* When active, slide in the menu */
+        .nav-links.active {
+          right: 0;
+        }
+        /* Show hamburger icon */
+        .hamburger {
+          display: block;
+        }
+        /* Add a close button inside nav */
+        .nav-links .nav-close {
+          position: absolute;
+          top: 20px;
+          right: 20px;
+          font-size: 1.8rem;
+          cursor: pointer;
+        }
+        /* Reduce header padding and logo size */
+        header {
+          padding: 10px 0;
+        }
+        .logo img {
+          height: 60px;
+        }
+        /* Difference Section: stack features vertically */
+        .features {
+          flex-direction: column;
+          gap: 20px;
+          text-align: center;
+        }
+        /* Fullscreen Section: allow content to flow (remove fixed 100vh) */
+        .fullscreen-section {
+          height: auto;
+          padding: 40px 20px;
+        }
+        .flex-container .half.text-content h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -17,7 +514,11 @@
         <div class="logo">
           <img src="./Logo.png" alt="Logo" />
         </div>
+        <!-- Hamburger icon for mobile -->
+        <div class="hamburger"><i class="fa fa-bars"></i></div>
         <ul class="nav-links">
+          <!-- Close icon inside mobile nav -->
+          <li class="nav-close"><i class="fa fa-times"></i></li>
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
@@ -26,6 +527,8 @@
         </ul>
       </nav>
     </header>
+
+    <!-- Hero Section -->
     <section class="hero">
       <div class="overlay"></div>
       <div class="hero-text">
@@ -38,9 +541,9 @@
       </div>
     </section>
 
+    <!-- Difference & Features Section -->
     <section class="difference">
       <div class="container">
-        <!-- Feature Icons Section -->
         <div class="features">
           <div class="feature">
             <div class="icon">
@@ -81,60 +584,43 @@
         </div>
       </div>
     </section>
-    <section class="max-w-7xl mx-auto p-8">
+
+    <!-- Content Section -->
+    <section class="content-section">
       <!-- First Row -->
-      <div class="grid grid-cols-2 gap-4 items-center">
-        <div class="bg-white p-12">
-          <p class="text-yellow-600 font-semibold uppercase">Our Difference</p>
-          <h2 class="text-3xl font-bold text-gray-800 leading-snug">
-            Pioneering the Future of Education
-          </h2>
-          <p class="text-gray-600 mt-4">
+      <div class="grid-two">
+        <div class="box">
+          <p class="section-subtitle">Our Difference</p>
+          <h2 class="section-title">Pioneering the Future of Education</h2>
+          <p class="section-paragraph">
             At [Company Name], we believe that the future of education lies in
             technology-driven solutions that empower learners.
           </p>
-          <a
-            href="#"
-            class="mt-6 inline-block bg-yellow-700 text-white px-6 py-3 rounded-md font-semibold"
-          >
-            Explore Solutions
-          </a>
+          <a href="#" class="btn">Explore Solutions</a>
         </div>
-        <div>
-          <img
-            src="bg2.jpg"
-            alt="Educators"
-            class="w-full h-auto rounded-lg shadow-md"
-          />
+        <div class="image-container">
+          <img src="bg2.jpg" alt="Educators" class="responsive-image" />
         </div>
       </div>
-
       <!-- Second Row -->
-      <div class="grid grid-cols-2 gap-4 items-center mt-6">
-        <div>
-          <img
-            src="bg3.jpg"
-            alt="Collaboration"
-            class="w-full h-auto rounded-lg shadow-md"
-          />
+      <div class="grid-two mt-6">
+        <div class="image-container">
+          <img src="bg3.jpg" alt="Collaboration" class="responsive-image" />
         </div>
-        <div class="bg-white p-12">
-          <h2 class="text-3xl font-bold text-gray-800 leading-snug">
+        <div class="box">
+          <h2 class="section-title">
             Powering the Next Generation of Learners
           </h2>
-          <p class="text-gray-600 mt-4">
+          <p class="section-paragraph">
             Our mission is to provide accessible, personalized education that
             equips students with the knowledge and skills.
           </p>
-          <a
-            href="#"
-            class="mt-6 inline-block bg-yellow-700 text-white px-6 py-3 rounded-md font-semibold"
-          >
-            Join the Movement
-          </a>
+          <a href="#" class="btn">Join the Movement</a>
         </div>
       </div>
     </section>
+
+    <!-- Clients Section -->
     <section class="clients-section">
       <div class="logo-wrapper">
         <div class="logo-slider">
@@ -171,8 +657,7 @@
           <div class="logo-container">
             <img src="logo11.png" alt="Client 11" />
           </div>
-
-          <!-- Duplicate the logos to make the animation seamless -->
+          <!-- Duplicate logos for seamless scroll -->
           <div class="logo-container">
             <img src="./logo1.png" alt="Client 1" />
           </div>
@@ -209,192 +694,145 @@
         </div>
       </div>
     </section>
+
+    <!-- Timeline Section -->
     <section class="timeline-section">
       <div class="timeline-container">
         <p class="timeline-title">Content Development Process</p>
         <img src="CDP.png" alt="Timeline" class="timeline-image" />
       </div>
     </section>
-    <section
-      class="relative flex justify-center items-center h-screen bg-[#0b1c3f] overflow-hidden"
-    >
-      <div class="flex flex-col lg:flex-row items-center max-w-6xl w-full px-6">
-        <!-- Left Side - Educator Image -->
-        <div class="w-full lg:w-1/2 flex justify-center">
-          <img
-            src="./bg4.jpg"
-            alt="Educator"
-            class="w-full max-w-lg max-h-[100vh] object-contain rounded-lg shadow-lg"
-          />
-        </div>
 
+    <!-- Fullscreen Section -->
+    <section class="fullscreen-section">
+      <div class="flex-container">
+        <!-- Left Side - Educator Image -->
+        <div class="half">
+          <img src="./bg4.jpg" alt="Educator" />
+        </div>
         <!-- Right Side - Content -->
-        <div class="w-full lg:w-1/2 text-white text-center lg:text-left px-8">
-          <h1 class="text-4xl font-semibold mb-4">Empowering Educators</h1>
-          <p class="text-lg opacity-80 mb-6">
+        <div class="half text-content">
+          <h1>Empowering Educators</h1>
+          <p>
             At PhiGrid Elite EdTech, we’re committed to empowering educators and
             inspiring students through innovative educational technology
             solutions.
           </p>
-          <a
-            href="#"
-            class="bg-yellow-500 text-blue-900 font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-yellow-400 transition"
-          >
-            Explore Now
-          </a>
+          <a href="#" class="btn-secondary">Explore Now</a>
         </div>
       </div>
     </section>
-    <!-- Map -->
-    <section class="max-w-5xl mx-auto p-8">
-      <!-- Contact Title -->
-      <h2 class="text-4xl font-bold text-gray-900 mb-6">CONTACT US</h2>
 
-      <!-- Map -->
-      <div class="w-full h-80 rounded-md overflow-hidden shadow-lg">
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+      <h2>CONTACT US</h2>
+      <div class="map-container">
         <iframe
-          class="w-full h-full"
           frameborder="0"
-          style="border: 0"
+          style="border: 0; width: 100%; height: 100%"
           allowfullscreen=""
           loading="lazy"
           src="https://www.google.com/maps?q=Akshar+Canabee,+Sector+36,+Navi+Mumbai&output=embed"
-        >
-        </iframe>
+        ></iframe>
       </div>
-
-      <!-- Contact Details & Form -->
-      <div class="grid md:grid-cols-2 gap-8 mt-8">
-        <!-- Left Side: Contact Info -->
-        <div>
-          <div class="flex items-start space-x-4">
-            <i class="fas fa-map-marker-alt text-yellow-700 text-2xl mt-1"></i>
+      <div class="grid-two-responsive">
+        <div class="contact-info">
+          <div class="contact-item">
+            <i
+              class="fas fa-map-marker-alt"
+              style="color: #b45309; font-size: 24px"
+            ></i>
             <div>
-              <h3 class="text-lg font-semibold text-gray-900">Address</h3>
-              <p class="text-gray-700">
-                Bangalore Office: SRS, Yelenahalli, Bangalore
-              </p>
-              <p class="text-gray-700">
-                Mumbai Office: Akshar Canabee, Sector 36, Navi-Mumbai
-              </p>
-              <p class="text-gray-700">
-                Pune Office: Eastania CHS, Ghorpadi, Pune
-              </p>
+              <h3>Address</h3>
+              <p>Bangalore Office: SRS, Yelenahalli, Bangalore</p>
+              <p>Mumbai Office: Akshar Canabee, Sector 36, Navi-Mumbai</p>
+              <p>Pune Office: Eastania CHS, Ghorpadi, Pune</p>
             </div>
           </div>
-          <div class="flex items-center space-x-4 mt-4">
-            <i class="fas fa-envelope text-yellow-700 text-2xl"></i>
-            <p class="text-gray-700 font-medium">info@phig-e2.co.in</p>
+          <div class="contact-item" style="margin-top: 16px">
+            <i
+              class="fas fa-envelope"
+              style="color: #b45309; font-size: 24px"
+            ></i>
+            <p>info@phig-e2.co.in</p>
           </div>
-          <div class="flex items-center space-x-4 mt-4">
-            <i class="fas fa-phone text-yellow-700 text-2xl"></i>
-            <p class="text-gray-700 font-medium">+91 99878 72755</p>
+          <div class="contact-item" style="margin-top: 16px">
+            <i class="fas fa-phone" style="color: #b45309; font-size: 24px"></i>
+            <p>+91 99878 72755</p>
           </div>
         </div>
-
-        <!-- Right Side: Contact Form -->
-        <div class="bg-white p-6 rounded-md shadow-lg">
+        <div class="contact-form">
           <form action="#" method="POST">
-            <div class="grid grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="Your Name"
-                class="border border-gray-300 rounded-md p-2 w-full"
-              />
-              <input
-                type="email"
-                placeholder="Your Email"
-                class="border border-gray-300 rounded-md p-2 w-full"
-              />
+            <div
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px"
+            >
+              <input type="text" placeholder="Your Name" />
+              <input type="email" placeholder="Your Email" />
             </div>
-            <input
-              type="text"
-              placeholder="Subject"
-              class="border border-gray-300 rounded-md p-2 w-full mt-4"
-            />
+            <input type="text" placeholder="Subject" style="margin-top: 16px" />
             <textarea
               placeholder="Message"
-              class="border border-gray-300 rounded-md p-2 w-full mt-4 h-32"
+              style="margin-top: 16px; height: 128px"
             ></textarea>
-            <button
-              type="submit"
-              class="mt-6 inline-block bg-yellow-700 text-white px-6 py-3 rounded-md font-semibold"
-            >
-              Send Message
-            </button>
+            <button type="submit">Send Message</button>
           </form>
         </div>
       </div>
     </section>
-    <footer class="w-full bg-gray-900 text-gray-300 py-10">
-      <div
-        class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left px-6"
-      >
-        <!-- Logo & Copyright -->
-        <div class="flex flex-col items-center md:items-start">
-          <img src="./Logo.png" alt="Logo" class="w-24 h-auto mb-2" />
-          <!-- Adjusted size -->
-          <p class="text-sm">© 2025 PhiGrid Elite EdTech, Inc.</p>
-          <p class="text-sm">All rights reserved.</p>
-        </div>
 
-        <!-- Quick Links -->
+    <!-- Footer -->
+    <footer>
+      <div class="footer-container">
         <div>
-          <h3 class="text-white font-semibold">Quick Links</h3>
-          <ul class="mt-3 space-y-2">
-            <li>
-              <a href="#" class="hover:text-yellow-500 transition">Home</a>
-            </li>
-            <li>
-              <a href="#" class="hover:text-yellow-500 transition">About</a>
-            </li>
-            <li>
-              <a href="#" class="hover:text-yellow-500 transition">Products</a>
-            </li>
-            <li>
-              <a href="#" class="hover:text-yellow-500 transition">Contact</a>
-            </li>
+          <img src="./Logo.png" alt="Logo" />
+          <p>© 2025 PhiGrid Elite EdTech, Inc.</p>
+          <p>All rights reserved.</p>
+        </div>
+        <div>
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Contact</a></li>
           </ul>
         </div>
-
-        <!-- Resources -->
         <div>
-          <h3 class="text-white font-semibold">Resources</h3>
-          <ul class="mt-3 space-y-2">
-            <li>
-              <a href="#" class="hover:text-yellow-500 transition">Guides</a>
-            </li>
-            <li>
-              <a href="#" class="hover:text-yellow-500 transition">Webinars</a>
-            </li>
-            <li>
-              <a href="#" class="hover:text-yellow-500 transition">Tutorials</a>
-            </li>
-            <li>
-              <a href="#" class="hover:text-yellow-500 transition">Events</a>
-            </li>
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Guides</a></li>
+            <li><a href="#">Webinars</a></li>
+            <li><a href="#">Tutorials</a></li>
+            <li><a href="#">Events</a></li>
           </ul>
         </div>
-
-        <!-- Company -->
         <div>
-          <h3 class="text-white font-semibold">Company</h3>
-          <ul class="mt-3 space-y-2">
-            <li>
-              <a href="#" class="hover:text-yellow-500 transition">Mission</a>
-            </li>
-            <li>
-              <a href="#" class="hover:text-yellow-500 transition">Team</a>
-            </li>
-            <li>
-              <a href="#" class="hover:text-yellow-500 transition">Careers</a>
-            </li>
-            <li>
-              <a href="#" class="hover:text-yellow-500 transition">Contact</a>
-            </li>
+          <h3>Company</h3>
+          <ul>
+            <li><a href="#">Mission</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Contact</a></li>
           </ul>
         </div>
       </div>
     </footer>
+
+    <!-- Mobile Navigation Toggle Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const hamburger = document.querySelector(".hamburger");
+        const navLinks = document.querySelector(".nav-links");
+        const navClose = document.querySelector(".nav-close");
+
+        hamburger.addEventListener("click", function () {
+          navLinks.classList.add("active");
+        });
+
+        navClose.addEventListener("click", function () {
+          navLinks.classList.remove("active");
+        });
+      });
+    </script>
   </body>
 </html>
