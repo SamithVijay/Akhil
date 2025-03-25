@@ -483,13 +483,7 @@
           right: 20px;
           font-size: 1.8rem;
           cursor: pointer;
-        }
-        /* Reduce header padding and logo size */
-        header {
-          padding: 10px 0;
-        }
-        .logo img {
-          height: 60px;
+          display: block;
         }
         /* Difference Section: stack features vertically */
         .features {
@@ -504,6 +498,22 @@
         }
         .flex-container .half.text-content h1 {
           font-size: 2rem;
+        }
+      }
+
+      /* Desktop overrides to ensure mobile-only elements are hidden */
+      @media (min-width: 768px) {
+        .hamburger {
+          display: none;
+        }
+        .nav-links {
+          position: static;
+          flex-direction: row;
+          padding: 0;
+          gap: 15px;
+        }
+        .nav-links .nav-close {
+          display: none;
         }
       }
     </style>
