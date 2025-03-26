@@ -655,6 +655,9 @@
         <a href="#contact" class="cta-button">Get Started Today</a>
       </div>
     </section>
+    <!-- <div class="timeline-container">
+      <img src="./samith.png" alt="Timeline" class="timeline-image" style="width: 80%; height: 80%;"/>
+    </div> -->
 
     <!-- Difference & Features Section -->
     <section class="difference">
@@ -811,116 +814,361 @@
     </section>
 
     <!-- Timeline Section -->
-
+    <section id="timeline-section">
+      <style id="timeline-custom-style">
+        /* Scoped Timeline Styles */
+        #timeline-section * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        
+        #timeline-section {
+          font-family: Arial, sans-serif;
+          color: #333;
+        }
+        
+        /* Container holding all steps */
+        #timeline-section .timeline-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          width: 90%;
+          max-width: 1200px;
+          margin: 40px auto;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        /* Each step */
+        #timeline-section .timeline-step {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 13%;
+          text-align: center;
+          position: relative;
+          opacity: 0; /* hidden by default */
+        }
+        
+        /* Icon & vertical line wrapper */
+        #timeline-section .icon-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 10px;
+          position: relative;
+        }
+        
+        #timeline-section .icon-circle {
+          width: 60px;
+          height: 60px;
+          background-color: #d4af37; /* default; overridden below */
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #fff;
+          font-size: 24px;
+          z-index: 2;
+        }
+        
+        /* Vertical line from icon to bar */
+        #timeline-section .vertical-line {
+          width: 2px;
+          height: 40px;
+          background: #999;
+          margin-top: -4px;
+          z-index: 1;
+        }
+        
+        /* Bar segment */
+        #timeline-section .bar-chunk {
+          width: 100%;
+          height: 16px;
+          position: relative;
+        }
+        
+        /* Rounded edges for first and last bar segments */
+        #timeline-section .first-chunk {
+          border-top-left-radius: 8px;
+          border-bottom-left-radius: 8px;
+        }
+        #timeline-section .last-chunk {
+          border-top-right-radius: 8px;
+          border-bottom-right-radius: 8px;
+        }
+        
+        /* Step info */
+        #timeline-section .step-info {
+          margin-top: 10px;
+        }
+        #timeline-section .step-number {
+          font-size: 20px;
+          font-weight: bold;
+          margin-bottom: 5px;
+          color: #000;
+        }
+        #timeline-section .step-text {
+          font-size: 14px;
+          color: #333;
+          max-width: 80px;
+          margin: 0 auto;
+        }
+        
+        /* Matching color gradient for icons and bars */
+        #timeline-section .timeline-step:nth-child(1) .icon-circle,
+        #timeline-section .timeline-step:nth-child(1) .bar-chunk {
+          background-color: #ffe08c;
+        }
+        #timeline-section .timeline-step:nth-child(2) .icon-circle,
+        #timeline-section .timeline-step:nth-child(2) .bar-chunk {
+          background-color: #f8d87e;
+        }
+        #timeline-section .timeline-step:nth-child(3) .icon-circle,
+        #timeline-section .timeline-step:nth-child(3) .bar-chunk {
+          background-color: #f1d070;
+        }
+        #timeline-section .timeline-step:nth-child(4) .icon-circle,
+        #timeline-section .timeline-step:nth-child(4) .bar-chunk {
+          background-color: #eac862;
+        }
+        #timeline-section .timeline-step:nth-child(5) .icon-circle,
+        #timeline-section .timeline-step:nth-child(5) .bar-chunk {
+          background-color: #e3c054;
+        }
+        #timeline-section .timeline-step:nth-child(6) .icon-circle,
+        #timeline-section .timeline-step:nth-child(6) .bar-chunk {
+          background-color: #dcb846;
+        }
+        #timeline-section .timeline-step:nth-child(7) .icon-circle,
+        #timeline-section .timeline-step:nth-child(7) .bar-chunk {
+          background-color: #d4af37;
+        }
+        
+        /* Desktop animations (horizontal timeline) */
+        @keyframes slideInLeft {
+          from {
+            transform: translateX(-100px);
+            opacity: 0;
+          }
+          to {
+            transform: translateX(0);
+            opacity: 1;
+          }
+        }
+        
+        /* @keyframes slideOutRight {
+          from {
+            transform: translateX(0);
+            opacity: 1;
+          }
+          to {
+            transform: translateX(100px);
+            opacity: 0;
+          }
+        } */
+        
+        /* Mobile animations (vertical timeline) */
+        @keyframes slideInTop {
+          from {
+            transform: translateY(-100px);
+            opacity: 0;
+          }
+          to {
+            transform: translateY(0);
+            opacity: 1;
+          }
+        }
+        
+        @keyframes slideOutBottom {
+          from {
+            transform: translateY(0);
+            opacity: 1;
+          }
+          to {
+            transform: translateY(100px);
+            opacity: 0;
+          }
+        }
+        
+        /* Animation classes (default desktop) */
+        #timeline-section .slide-in {
+          animation: slideInLeft 0.5s forwards;
+        }
+        #timeline-section .slide-out {
+          animation: slideOutRight 0.5s forwards;
+        }
+        
+        /* Responsive adjustments for mobile */
+        @media (max-width: 768px) {
+          #timeline-section .timeline-container {
+            flex-direction: column;
+            align-items: center;
+          }
+          #timeline-section .timeline-step {
+            width: 100%;
+            margin-bottom: 40px;
+          }
+          #timeline-section .bar-chunk {
+            margin: 10px 0;
+          }
+          #timeline-section .slide-in {
+            animation: slideInTop 0.5s forwards;
+          }
+          #timeline-section .slide-out {
+            animation: slideOutBottom 0.5s forwards;
+          }
+        }
+      </style>
+    
+      <div class="timeline-container">
+        <!-- Step 1 -->
+        <div class="timeline-step">
+          <div class="icon-wrapper">
+            <div class="icon-circle">
+              <i class="fa-solid fa-handshake"></i>
+            </div>
+            <div class="vertical-line"></div>
+          </div>
+          <div class="bar-chunk first-chunk"></div>
+          <div class="step-info">
+            <div class="step-number">1</div>
+            <div class="step-text">Receive Syllabus from the Client</div>
+          </div>
+        </div>
+    
+        <!-- Step 2 -->
+        <div class="timeline-step">
+          <div class="step-info">
+            <div class="step-number">2</div>
+            <div class="step-text">Brainstorm &amp; Ideation</div>
+          </div>
+          <div class="bar-chunk" style="margin-top: 35px"></div>
+          <div class="vertical-line" style="margin-top: 10px"></div>
+          <div class="icon-wrapper">
+            <div class="icon-circle">
+              <i class="fa-solid fa-lightbulb"></i>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Step 3 -->
+        <div class="timeline-step">
+          <div class="icon-wrapper">
+            <div class="icon-circle">
+              <i class="fa-solid fa-briefcase"></i>
+            </div>
+            <div class="vertical-line"></div>
+          </div>
+          <div class="bar-chunk"></div>
+          <div class="step-info">
+            <div class="step-number">3</div>
+            <div class="step-text">Prepare Resources</div>
+          </div>
+        </div>
+    
+        <!-- Step 4 -->
+        <div class="timeline-step">
+          <div class="step-info">
+            <div class="step-number">4</div>
+            <div class="step-text">Analyze Progress</div>
+          </div>
+          <div class="bar-chunk" style="margin-top: 35px"></div>
+          <div class="vertical-line" style="margin-top: 10px"></div>
+          <div class="icon-wrapper">
+            <div class="icon-circle">
+              <i class="fa-solid fa-chart-pie"></i>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Step 5 -->
+        <div class="timeline-step">
+          <div class="icon-wrapper">
+            <div class="icon-circle">
+              <i class="fa-solid fa-dollar-sign"></i>
+            </div>
+            <div class="vertical-line"></div>
+          </div>
+          <div class="bar-chunk"></div>
+          <div class="step-info">
+            <div class="step-number">5</div>
+            <div class="step-text">Budget &amp; Approvals</div>
+          </div>
+        </div>
+    
+        <!-- Step 6 -->
+        <div class="timeline-step">
+          <div class="step-info">
+            <div class="step-number">6</div>
+            <div class="step-text">Team Collaboration</div>
+          </div>
+          <div class="bar-chunk" style="margin-top: 35px"></div>
+          <div class="vertical-line" style="margin-top: 10px"></div>
+          <div class="icon-wrapper">
+            <div class="icon-circle">
+              <i class="fa-solid fa-users"></i>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Step 7 -->
+        <div class="timeline-step">
+          <div class="icon-wrapper">
+            <div class="icon-circle">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div class="vertical-line"></div>
+          </div>
+          <div class="bar-chunk last-chunk"></div>
+          <div class="step-info">
+            <div class="step-number">7</div>
+            <div class="step-text">Final Delivery</div>
+          </div>
+        </div>
+      </div>
+    
+      <script id="timeline-custom-script">
+        (function() {
+          // Scoped to timeline-section
+          let lastScrollY = window.pageYOffset;
+          const section = document.querySelector("#timeline-section");
+          const timelineSteps = section.querySelectorAll('.timeline-step');
+    
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                // Determine scroll direction: down means slide in from left/top; up means slide out right/bottom.
+                if (window.pageYOffset > lastScrollY) {
+                  entry.target.classList.remove('slide-out');
+                  entry.target.classList.add('slide-in');
+                } else {
+                  entry.target.classList.remove('slide-in');
+                  entry.target.classList.add('slide-out');
+                }
+                entry.target.style.opacity = 1;
+              } else {
+                // Reset animation classes when out of view.
+                entry.target.classList.remove('slide-in', 'slide-out');
+                entry.target.style.opacity = 0;
+              }
+            });
+            lastScrollY = window.pageYOffset;
+          }, { threshold: 0.5 });
+          
+          timelineSteps.forEach(step => {
+            observer.observe(step);
+          });
+        })();
+      </script>
+    </section>
+   
     <!-- <div class="timeline-container">
         <p class="timeline-title">Content Development Process</p>
         <img src="CDP.png" alt="Timeline" class="timeline-image" />
       </div> -->
-    <div class="timeline-container">
-      <div class="timeline-step">
-        <div class="icon-wrapper">
-          <div class="icon-circle">
-            <i class="fa-solid fa-handshake"></i>
-          </div>
-          <div class="vertical-line"></div>
-        </div>
-        <div class="bar-chunk first-chunk"></div>
-        <div class="step-info">
-          <div class="step-number">1</div>
-          <div class="step-text">Receive Syllabus from the Client</div>
-        </div>
-      </div>
-
-      <!-- Step 2 -->
-      <div class="timeline-step">
-        <div class="step-info">
-          <div class="step-number">2</div>
-          <div class="step-text">Brainstorm &amp; Ideation</div>
-        </div>
-        <div class="bar-chunk" style="margin-top: 35px"></div>
-        <div class="vertical-line" style="margin-top: 10px"></div>
-        <div class="icon-wrapper">
-          <div class="icon-circle">
-            <i class="fa-solid fa-lightbulb"></i>
-          </div>
-        </div>
-      </div>
-
-      <!-- Step 3 -->
-      <div class="timeline-step">
-        <div class="icon-wrapper">
-          <div class="icon-circle">
-            <i class="fa-solid fa-briefcase"></i>
-          </div>
-          <div class="vertical-line"></div>
-        </div>
-        <div class="bar-chunk"></div>
-        <div class="step-info">
-          <div class="step-number">3</div>
-          <div class="step-text">Prepare Resources</div>
-        </div>
-      </div>
-
-      <!-- Step 4 -->
-      <div class="timeline-step">
-        <div class="step-info">
-          <div class="step-number">4</div>
-          <div class="step-text">Analyze Progress</div>
-        </div>
-        <div class="bar-chunk" style="margin-top: 35px"></div>
-        <div class="vertical-line" style="margin-top: 10px"></div>
-        <div class="icon-wrapper">
-          <div class="icon-circle">
-            <i class="fa-solid fa-chart-pie"></i>
-          </div>
-        </div>
-      </div>
-
-      <!-- Step 5 -->
-      <div class="timeline-step">
-        <div class="icon-wrapper">
-          <div class="icon-circle">
-            <i class="fa-solid fa-dollar-sign"></i>
-          </div>
-          <div class="vertical-line"></div>
-        </div>
-        <div class="bar-chunk"></div>
-        <div class="step-info">
-          <div class="step-number">5</div>
-          <div class="step-text">Budget & Approvals</div>
-        </div>
-      </div>
-
-      <!-- Step 6 -->
-      <div class="timeline-step">
-        <div class="step-info">
-          <div class="step-number">6</div>
-          <div class="step-text">Team Collaboration</div>
-        </div>
-        <div class="bar-chunk" style="margin-top: 35px"></div>
-        <div class="vertical-line" style="margin-top: 10px"></div>
-        <div class="icon-wrapper">
-          <div class="icon-circle">
-            <i class="fa-solid fa-users"></i>
-          </div>
-        </div>
-      </div>
-      <!-- Step 7 -->
-      <div class="timeline-step">
-        <div class="icon-wrapper">
-          <div class="icon-circle">
-            <i class="fa-solid fa-chart-line"></i>
-          </div>
-          <div class="vertical-line"></div>
-        </div>
-        <div class="bar-chunk last-chunk"></div>
-        <div class="step-info">
-          <div class="step-number">7</div>
-          <div class="step-text">Final Delivery</div>
-        </div>
-      </div>
-    </div>
-
+    
     <!-- Fullscreen Section -->
     <section class="fullscreen-section">
       <div class="flex-container">
