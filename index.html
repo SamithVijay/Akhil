@@ -98,8 +98,8 @@
       }
       .cta-button {
         display: inline-block;
-        background: #ff9800;
-        color: white;
+        background: #b45309;
+        color: #fff;
         padding: 10px 20px;
         text-decoration: none;
         font-weight: bold;
@@ -168,7 +168,7 @@
         padding: 32px;
       }
       .section-subtitle {
-        color: #d97706;
+        color: #b45309;
         font-weight: 600;
         text-transform: uppercase;
         margin-bottom: 10px;
@@ -241,33 +241,138 @@
         width: 200%;
       }
 
-      /* Timeline Section */
-      .timeline-section {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 50px 20px;
-        background-color: #f5f5f5;
-      }
       .timeline-container {
-        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start; /* icons on top */
+        width: 90%;
         max-width: 1200px;
+        margin: 40px auto;
+        position: relative;
+      }
+
+      /* Each step */
+      .timeline-step {
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 13%; /* 7 steps => ~14% each, small margin for spacing */
         text-align: center;
+        position: relative;
       }
-      .timeline-title {
-        font-size: 20px;
-        font-weight: 600;
-        color: #d97706;
-        text-transform: uppercase;
-        margin-bottom: 15px;
+
+      /* The top part: icon + vertical line connecting down to the bar */
+      .icon-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+        position: relative;
       }
-      .timeline-image {
+
+      .icon-circle {
+        width: 60px;
+        height: 60px;
+        background-color: #d4af37; /* gold */
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff; /* white icon */
+        font-size: 24px;
+        z-index: 2; /* so it sits above the vertical line */
+      }
+
+      /* Vertical line from icon down to the bar */
+      .vertical-line {
+        width: 2px;
+        height: 40px;
+        background: #999; /* or #333 or any color */
+        margin-top: -4px; /* overlap the circle slightly */
+        z-index: 1;
+      }
+
+      /* The gold bar segment in the middle */
+      .bar-chunk {
         width: 100%;
-        max-width: 1000px;
-        height: auto;
+        height: 16px;
+        position: relative;
+      }
+
+      /* Round the first segment's left edge */
+      .first-chunk {
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+      }
+
+      /* Round the last segment's right edge */
+      .last-chunk {
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+      }
+
+      /* Bottom part: number + label */
+      .step-info {
+        margin-top: 10px;
+      }
+
+      .step-number {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #000;
+      }
+
+      .step-text {
+        font-size: 14px;
+        color: #333;
+        max-width: 80px; /* keep the text from stretching too wide */
+        margin: 0 auto;
+      }
+
+      /* Responsive: switch to vertical stacking if needed */
+      @media (max-width: 768px) {
+        .timeline-container {
+          flex-direction: column;
+          align-items: center;
+        }
+        .timeline-step {
+          width: 100%;
+          margin-bottom: 40px;
+        }
+        .bar-chunk {
+          margin: 10px 0;
+        }
+      }
+
+      /* Gradual matching background colors for both icon and bar in each timeline step */
+      .timeline-step:nth-child(1) .icon-circle,
+      .timeline-step:nth-child(1) .bar-chunk {
+        background-color: #ffe08c; /* Step 1 */
+      }
+      .timeline-step:nth-child(2) .icon-circle,
+      .timeline-step:nth-child(2) .bar-chunk {
+        background-color: #f8d87e; /* Step 2 */
+      }
+      .timeline-step:nth-child(3) .icon-circle,
+      .timeline-step:nth-child(3) .bar-chunk {
+        background-color: #f1d070; /* Step 3 */
+      }
+      .timeline-step:nth-child(4) .icon-circle,
+      .timeline-step:nth-child(4) .bar-chunk {
+        background-color: #eac862; /* Step 4 */
+      }
+      .timeline-step:nth-child(5) .icon-circle,
+      .timeline-step:nth-child(5) .bar-chunk {
+        background-color: #e3c054; /* Step 5 */
+      }
+      .timeline-step:nth-child(6) .icon-circle,
+      .timeline-step:nth-child(6) .bar-chunk {
+        background-color: #dcb846; /* Step 6 */
+      }
+      .timeline-step:nth-child(7) .icon-circle,
+      .timeline-step:nth-child(7) .bar-chunk {
+        background-color: #d4af37; /* Step 7 */
       }
 
       /* Fullscreen Section */
@@ -324,8 +429,8 @@
         margin-bottom: 24px;
       }
       .btn-secondary {
-        background: #f59e0b;
-        color: #1e3a8a;
+        background: #b45309;
+        color: #fff;
         padding: 12px 24px;
         border-radius: 8px;
         font-weight: bold;
@@ -422,7 +527,7 @@
         }
       }
       .footer-container img {
-        width: 96px;
+        width: 200px;
         margin-bottom: 8px;
       }
       .footer-container h3 {
@@ -603,8 +708,8 @@
           <p class="section-subtitle">Our Difference</p>
           <h2 class="section-title">Pioneering the Future of Education</h2>
           <p class="section-paragraph">
-            At [Company Name], we believe that the future of education lies in
-            technology-driven solutions that empower learners.
+            At PhiGrid Elite EdTech, we believe that the future of education
+            lies in technology-driven solutions that empower learners.
           </p>
           <a href="#" class="btn">Explore Solutions</a>
         </div>
@@ -706,12 +811,115 @@
     </section>
 
     <!-- Timeline Section -->
-    <section class="timeline-section">
-      <div class="timeline-container">
+
+    <!-- <div class="timeline-container">
         <p class="timeline-title">Content Development Process</p>
         <img src="CDP.png" alt="Timeline" class="timeline-image" />
+      </div> -->
+    <div class="timeline-container">
+      <div class="timeline-step">
+        <div class="icon-wrapper">
+          <div class="icon-circle">
+            <i class="fa-solid fa-handshake"></i>
+          </div>
+          <div class="vertical-line"></div>
+        </div>
+        <div class="bar-chunk first-chunk"></div>
+        <div class="step-info">
+          <div class="step-number">1</div>
+          <div class="step-text">Receive Syllabus from the Client</div>
+        </div>
       </div>
-    </section>
+
+      <!-- Step 2 -->
+      <div class="timeline-step">
+        <div class="step-info">
+          <div class="step-number">2</div>
+          <div class="step-text">Brainstorm &amp; Ideation</div>
+        </div>
+        <div class="bar-chunk" style="margin-top: 35px"></div>
+        <div class="vertical-line" style="margin-top: 10px"></div>
+        <div class="icon-wrapper">
+          <div class="icon-circle">
+            <i class="fa-solid fa-lightbulb"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="timeline-step">
+        <div class="icon-wrapper">
+          <div class="icon-circle">
+            <i class="fa-solid fa-briefcase"></i>
+          </div>
+          <div class="vertical-line"></div>
+        </div>
+        <div class="bar-chunk"></div>
+        <div class="step-info">
+          <div class="step-number">3</div>
+          <div class="step-text">Prepare Resources</div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="timeline-step">
+        <div class="step-info">
+          <div class="step-number">4</div>
+          <div class="step-text">Analyze Progress</div>
+        </div>
+        <div class="bar-chunk" style="margin-top: 35px"></div>
+        <div class="vertical-line" style="margin-top: 10px"></div>
+        <div class="icon-wrapper">
+          <div class="icon-circle">
+            <i class="fa-solid fa-chart-pie"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="timeline-step">
+        <div class="icon-wrapper">
+          <div class="icon-circle">
+            <i class="fa-solid fa-dollar-sign"></i>
+          </div>
+          <div class="vertical-line"></div>
+        </div>
+        <div class="bar-chunk"></div>
+        <div class="step-info">
+          <div class="step-number">5</div>
+          <div class="step-text">Budget & Approvals</div>
+        </div>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="timeline-step">
+        <div class="step-info">
+          <div class="step-number">6</div>
+          <div class="step-text">Team Collaboration</div>
+        </div>
+        <div class="bar-chunk" style="margin-top: 35px"></div>
+        <div class="vertical-line" style="margin-top: 10px"></div>
+        <div class="icon-wrapper">
+          <div class="icon-circle">
+            <i class="fa-solid fa-users"></i>
+          </div>
+        </div>
+      </div>
+      <!-- Step 7 -->
+      <div class="timeline-step">
+        <div class="icon-wrapper">
+          <div class="icon-circle">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <div class="vertical-line"></div>
+        </div>
+        <div class="bar-chunk last-chunk"></div>
+        <div class="step-info">
+          <div class="step-number">7</div>
+          <div class="step-text">Final Delivery</div>
+        </div>
+      </div>
+    </div>
 
     <!-- Fullscreen Section -->
     <section class="fullscreen-section">
