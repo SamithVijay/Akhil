@@ -9,7 +9,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
-    <!-- Tailwind removed -->
     <style>
       /* Global Styles */
       body {
@@ -121,7 +120,7 @@
         display: flex;
         justify-content: space-between;
         text-align: center;
-        margin-bottom: 50px;
+        margin-bottom: 1px;
       }
       .feature {
         display: flex;
@@ -260,7 +259,7 @@
         text-align: center;
         position: relative;
       }
- .timeline-title {
+      .timeline-title {
         margin-left: 10%;
         font-size: 20px;
         font-weight: 600;
@@ -381,7 +380,7 @@
       .timeline-step:nth-child(7) .bar-chunk {
         background-color: #d4af37; /* Step 7 */
       }
- /* Animation keyframes for desktop (horizontal timeline) */
+      /* Animation keyframes for desktop (horizontal timeline) */
       @keyframes slideInLeft {
         from {
           transform: translateX(-100px);
@@ -591,7 +590,7 @@
 
       /* Footer */
       footer {
-        background: #1f2937;
+        background: #0b1c3f;
         color: #d1d5db;
         padding: 40px 20px;
       }
@@ -710,7 +709,7 @@
     <header>
       <nav>
         <div class="logo">
-         <a href="#home"><img src="./Logo.png" alt="Logo" /></a>
+          <a href="#home"><img src="./Logo.png" alt="Logo" /></a>
         </div>
         <!-- Hamburger icon for mobile -->
         <div class="hamburger"><i class="fa fa-bars"></i></div>
@@ -794,7 +793,7 @@
             At PhiGrid Elite EdTech, we believe that the future of education
             lies in technology-driven solutions that empower learners.
           </p>
-          <a href="#" class="btn">Explore Solutions</a>
+          <a href="#contact" class="btn">Explore Solutions</a>
         </div>
         <div class="image-container">
           <img src="bg2.jpg" alt="Educators" class="responsive-image" />
@@ -813,13 +812,13 @@
             Our mission is to provide accessible, personalized education that
             equips students with the knowledge and skills.
           </p>
-          <a href="#" class="btn">Join the Movement</a>
+          <!-- <a href="#" class="btn">Join the Movement</a> -->
         </div>
       </div>
     </section>
 
     <!-- Clients Section -->
-<!--     <section class="clients-section">
+    <!--     <section class="clients-section">
       <div class="logo-wrapper">
         <div class="logo-slider">
           <div class="logo-container">
@@ -855,8 +854,8 @@
           <div class="logo-container">
             <img src="logo11.png" alt="Client 11" />
           </div> -->
-          <!-- Duplicate logos for seamless scroll -->
-<!--           <div class="logo-container">
+    <!-- Duplicate logos for seamless scroll -->
+    <!--           <div class="logo-container">
             <img src="./logo1.png" alt="Client 1" />
           </div>
           <div class="logo-container">
@@ -892,6 +891,131 @@
         </div>
       </div>
     </section> -->
+    <section class="services" id="services">
+      <style>
+        .services {
+          text-align: center;
+          padding: 100px 20px;
+          background: #0b1c3f; /* Dark blue background */
+        }
+
+        .section-title {
+          font-size: 32px;
+          color: #b45309; /* Gold for contrast */
+          font-weight: bold;
+          text-transform: uppercase;
+          margin-bottom: 40px;
+        }
+
+        .services-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 30px;
+          max-width: 1200px;
+          margin: auto;
+        }
+
+        .service-tile {
+          background: #ffffff;
+          padding: 25px;
+          border-radius: 12px;
+          text-align: center;
+          box-shadow: 0px 4px 12px rgba(255, 255, 255, 0.1);
+          transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .service-tile:hover {
+          transform: translateY(-5px);
+          box-shadow: 0px 6px 18px rgba(255, 255, 255, 0.2);
+        }
+
+        .service-icon {
+          font-size: 50px;
+          margin-bottom: 12px;
+          color: #0b1c3f; /* Dark blue */
+        }
+
+        .service-title {
+          font-size: 18px;
+          font-weight: bold;
+          color: #0b1c3f;
+          margin-bottom: 10px;
+        }
+
+        .service-description {
+          font-size: 14px;
+          color: #333;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+          .services-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+      </style>
+
+      <h2 class="section-title">Our Services</h2>
+      <div class="services-grid">
+        <div class="service-tile">
+          <div class="service-icon">📚</div>
+          <h3 class="service-title">Content Development</h3>
+          <p class="service-description">
+            High-quality course materials, online degree content, and
+            self-learning materials.
+          </p>
+        </div>
+
+        <div class="service-tile">
+          <div class="service-icon">🏢</div>
+          <h3 class="service-title">Corporate Training</h3>
+          <p class="service-description">
+            Custom learning solutions for MNCs and businesses.
+          </p>
+        </div>
+
+        <div class="service-tile">
+          <div class="service-icon">🎥</div>
+          <h3 class="service-title">Video Production</h3>
+          <p class="service-description">
+            AI voice-over, SME-led recordings, and post-production editing.
+          </p>
+        </div>
+
+        <div class="service-tile">
+          <div class="service-icon">📝</div>
+          <h3 class="service-title">Instructional Design</h3>
+          <p class="service-description">
+            Structured learning frameworks and interactive learning
+            methodologies.
+          </p>
+        </div>
+
+        <div class="service-tile">
+          <div class="service-icon">🖥️</div>
+          <h3 class="service-title">LMS Management</h3>
+          <p class="service-description">
+            Complete setup and management of learning management systems.
+          </p>
+        </div>
+
+        <div class="service-tile">
+          <div class="service-icon">📡</div>
+          <h3 class="service-title">Education Consultancy</h3>
+          <p class="service-description">
+            Guidance on launching online learning programs and CDOL centers.
+          </p>
+        </div>
+
+        <div class="service-tile">
+          <div class="service-icon">📊</div>
+          <h3 class="service-title">Workshops & Training</h3>
+          <p class="service-description">
+            Expert-led sessions on AI, Blockchain, Power BI, IoT, and more.
+          </p>
+        </div>
+      </div>
+    </section>
 
     <!-- Timeline Section -->
 
@@ -899,6 +1023,7 @@
         <p class="timeline-title">Content Development Process</p>
         <img src="CDP.png" alt="Timeline" class="timeline-image" />
       </div> -->
+
     <p class="timeline-title">Content Development Process</p>
     <div class="timeline-container">
       <div class="timeline-step">
@@ -1136,7 +1261,7 @@
         });
       });
     </script>
-     <script>
+    <script>
       // Scroll-based animation using IntersectionObserver with scroll direction detection
       let lastScrollY = window.pageYOffset;
       const timelineSteps = document.querySelectorAll(".timeline-step");
