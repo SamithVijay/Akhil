@@ -381,6 +381,82 @@
       .timeline-step:nth-child(7) .bar-chunk {
         background-color: #d4af37; /* Step 7 */
       }
+ /* Animation keyframes for desktop (horizontal timeline) */
+      @keyframes slideInLeft {
+        from {
+          transform: translateX(-100px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideOutRight {
+        from {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        to {
+          transform: translateX(100px);
+          opacity: 0;
+        }
+      }
+
+      /* Animation keyframes for mobile (vertical timeline) */
+      @keyframes slideInTop {
+        from {
+          transform: translateY(-100px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideOutBottom {
+        from {
+          transform: translateY(0);
+          opacity: 1;
+        }
+        to {
+          transform: translateY(100px);
+          opacity: 0;
+        }
+      }
+
+      /* Default animation classes for desktop */
+      .slide-in {
+        animation: slideInLeft 0.5s forwards;
+      }
+
+      .slide-out {
+        animation: slideOutRight 0.5s forwards;
+      }
+
+      /* Responsive: vertical timeline for mobile */
+      @media (max-width: 768px) {
+        .timeline-container {
+          flex-direction: column;
+          align-items: center;
+        }
+        .timeline-step {
+          width: 100%;
+          margin-bottom: 40px;
+        }
+        .bar-chunk {
+          margin: 10px 0;
+        }
+        /* Override animations for mobile */
+        .slide-in {
+          animation: slideInTop 0.5s forwards;
+        }
+        .slide-out {
+          animation: slideOutBottom 0.5s forwards;
+        }
+      }
 
       /* Fullscreen Section */
       .fullscreen-section {
@@ -1058,6 +1134,40 @@
         navClose.addEventListener("click", function () {
           navLinks.classList.remove("active");
         });
+      });
+    </script>
+     <script>
+      // Scroll-based animation using IntersectionObserver with scroll direction detection
+      let lastScrollY = window.pageYOffset;
+      const timelineSteps = document.querySelectorAll(".timeline-step");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Determine scroll direction: if scrolling down, slide in from left/top;
+              // if scrolling up, slide out toward right/bottom.
+              if (window.pageYOffset > lastScrollY) {
+                entry.target.classList.remove("slide-out");
+                entry.target.classList.add("slide-in");
+              } else {
+                entry.target.classList.remove("slide-in");
+                entry.target.classList.add("slide-out");
+              }
+              entry.target.style.opacity = 1;
+            } else {
+              // Reset animation classes when out of view
+              entry.target.classList.remove("slide-in", "slide-out");
+              entry.target.style.opacity = 0;
+            }
+          });
+          lastScrollY = window.pageYOffset;
+        },
+        { threshold: 0.5 }
+      );
+
+      timelineSteps.forEach((step) => {
+        observer.observe(step);
       });
     </script>
   </body>
