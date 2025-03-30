@@ -70,6 +70,144 @@
         font-weight: bold;
         border-radius: 5px;
       }
+      /* Section Styling */
+      #about {
+        padding: 60px 20px;
+        text-align: left;
+        margin-top: 80px;
+      }
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      h2,
+      h3 {
+        color: #0b1c3f; /* Deep Blue for headings */
+        font-weight: bold;
+      }
+      h2 i,
+      h3 i {
+        margin-right: 10px;
+        color: #b45309; /* Gold for icons */
+      }
+      .tagline {
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: #b45309; /* Gold */
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+      }
+
+      /* Lines */
+      .solid-line {
+        border: none;
+        border-top: 3px solid #0b1c3f;
+        margin: 30px 0;
+      }
+      .dotted-line {
+        border: none;
+        border-top: 2px dashed #b45309;
+        margin: 25px 0;
+      }
+
+      /* Highlighted Words */
+      .highlight {
+        background-color: #b45309;
+        padding: 3px 8px;
+        color: white;
+        font-weight: bold;
+        border-radius: 5px;
+        white-space: nowrap;
+      }
+      .expertise {
+        text-align: center;
+        background: #fff;
+      }
+
+      .expertise-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .expertise-box {
+        background: white;
+        padding: 15px;
+        border: 2px solid #b45309;
+        border-radius: 8px;
+        width: 220px;
+        text-align: center;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .expertise-box:hover {
+        transform: scale(1.05);
+      }
+
+      .expertise-box i {
+        font-size: 40px;
+        color: #b45309;
+      }
+      /* UGC Quadrant */
+      .ugc-approach {
+        background-color: #0b1c3f;
+        color: white;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .quadrants {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .quadrant {
+        background: white;
+        color: #0b1c3f;
+        padding: 15px;
+        border-radius: 8px;
+        width: 220px;
+        text-align: center;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .quadrant:hover {
+        transform: scale(1.05);
+      }
+
+      .quadrant i {
+        font-size: 40px;
+        color: #b45309;
+      }
+      .sme-list {
+        max-width: 800px;
+        margin: auto;
+        text-align: left;
+        padding: 20px;
+      }
+
+      .sme-list ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .sme-list li {
+        font-size: 1.1em;
+        margin: 10px 0;
+      }
+
+      .sme-list i {
+        color: #b45309;
+        margin-right: 10px;
+      }
+
       /* Footer */
       footer {
         background: #0b1c3f;
@@ -115,7 +253,6 @@
       .footer-container ul li a:hover {
         color: #f59e0b;
       }
-
       /* Responsive Adjustments for Mobile (≤767px) */
       @media (max-width: 767px) {
         /* Stack grid-two layout to single column */
@@ -154,22 +291,7 @@
           cursor: pointer;
           display: block;
         }
-        /* Difference Section: stack features vertically */
-        .features {
-          flex-direction: column;
-          gap: 20px;
-          text-align: center;
-        }
-        /* Fullscreen Section: allow content to flow (remove fixed 100vh) */
-        .fullscreen-section {
-          height: auto;
-          padding: 40px 20px;
-        }
-        .flex-container .half.text-content h1 {
-          font-size: 2rem;
-        }
       }
-
       /* Desktop overrides to ensure mobile-only elements are hidden */
       @media (min-width: 768px) {
         .hamburger {
@@ -365,10 +487,7 @@
           <span class="highlight">learners</span> with high-quality, engaging,
           and innovative educational materials. Whether you are an academic
           institution or a corporate organization, our expertise ensures that
-          you receive
-          <span class="highlight"
-            >tailored, impactful, and results-driven learning solutions</span
-          >.
+          you receive tailored, impactful, and results-driven learning solutions
         </p>
 
         <p>
@@ -380,151 +499,7 @@
       </div>
     </section>
 
-    <!-- Font Awesome Icons -->
-    <script
-      src="https://kit.fontawesome.com/a076d05399.js"
-      crossorigin="anonymous"
-    ></script>
-
-    <style>
-      /* Section Styling */
-      #about {
-        padding: 60px 20px;
-        text-align: left;
-        margin-top: 80px;
-      }
-      .container {
-        max-width: 900px;
-        margin: 0 auto;
-      }
-      h2,
-      h3 {
-        color: #0b1c3f; /* Deep Blue for headings */
-        font-weight: bold;
-      }
-      h2 i,
-      h3 i {
-        margin-right: 10px;
-        color: #b45309; /* Gold for icons */
-      }
-      .tagline {
-        font-size: 1.4rem;
-        font-weight: bold;
-        color: #b45309; /* Gold */
-        text-align: center;
-        margin-bottom: 30px;
-      }
-      p {
-        font-size: 1.1rem;
-        line-height: 1.6;
-      }
-
-      /* Lines */
-      .solid-line {
-        border: none;
-        border-top: 3px solid #0b1c3f;
-        margin: 30px 0;
-      }
-      .dotted-line {
-        border: none;
-        border-top: 2px dashed #b45309;
-        margin: 25px 0;
-      }
-
-      /* Highlighted Words */
-      .highlight {
-        background-color: #b45309;
-        padding: 3px 8px;
-        color: white;
-        font-weight: bold;
-        border-radius: 5px;
-        white-space: nowrap;
-      }
-      .expertise {
-        text-align: center;
-        background: #fff;
-      }
-
-      .expertise-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-      }
-
-      .expertise-box {
-        background: white;
-        padding: 15px;
-        border: 2px solid #b45309;
-        border-radius: 8px;
-        width: 220px;
-        text-align: center;
-        transition: transform 0.3s ease-in-out;
-      }
-
-      .expertise-box:hover {
-        transform: scale(1.05);
-      }
-
-      .expertise-box i {
-        font-size: 40px;
-        color: #b45309;
-      }
-      /* UGC Quadrant */
-      .ugc-approach {
-        background-color: #0b1c3f;
-        color: white;
-        padding: 20px;
-        text-align: center;
-      }
-
-      .quadrants {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-      }
-
-      .quadrant {
-        background: white;
-        color: #0b1c3f;
-        padding: 15px;
-        border-radius: 8px;
-        width: 220px;
-        text-align: center;
-        transition: transform 0.3s ease-in-out;
-      }
-
-      .quadrant:hover {
-        transform: scale(1.05);
-      }
-
-      .quadrant i {
-        font-size: 40px;
-        color: #b45309;
-      }
-      .sme-list {
-        max-width: 800px;
-        margin: auto;
-        text-align: left;
-        padding: 20px;
-      }
-
-      .sme-list ul {
-        list-style: none;
-        padding: 0;
-      }
-
-      .sme-list li {
-        font-size: 1.1em;
-        margin: 10px 0;
-      }
-
-      .sme-list i {
-        color: #b45309;
-        margin-right: 10px;
-      }
-    </style>
+    <style></style>
 
     <!-- Footer -->
     <footer>
@@ -568,15 +543,15 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const hamburger = document.querySelector(".hamburger");
+        const closeIcon = document.querySelector(".close-icon");
         const navLinks = document.querySelector(".nav-links");
-        const navClose = document.querySelector(".nav-close");
 
         hamburger.addEventListener("click", function () {
-          navLinks.classList.add("active");
+          navLinks.classList.add("nav-active");
         });
 
-        navClose.addEventListener("click", function () {
-          navLinks.classList.remove("active");
+        closeIcon.addEventListener("click", function () {
+          navLinks.classList.remove("nav-active");
         });
       });
     </script>
