@@ -543,15 +543,15 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const hamburger = document.querySelector(".hamburger");
-        const closeIcon = document.querySelector(".close-icon");
         const navLinks = document.querySelector(".nav-links");
+        const navClose = document.querySelector(".nav-close");
 
         hamburger.addEventListener("click", function () {
-          navLinks.classList.add("nav-active");
+          navLinks.classList.add("active");
         });
 
-        closeIcon.addEventListener("click", function () {
-          navLinks.classList.remove("nav-active");
+        navClose.addEventListener("click", function () {
+          navLinks.classList.remove("active");
         });
       });
     </script>
