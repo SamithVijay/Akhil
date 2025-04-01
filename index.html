@@ -1190,22 +1190,18 @@
             <p>+91 99878 72755</p>
           </div>
         </div>
-        <div class="contact-form">
-          <form action="#" method="POST">
-            <div
-              style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px"
-            >
-              <input type="text" placeholder="Your Name" />
-              <input type="email" placeholder="Your Email" />
-            </div>
-            <input type="text" placeholder="Subject" style="margin-top: 16px" />
-            <textarea
-              placeholder="Message"
-              style="margin-top: 16px; height: 128px"
-            ></textarea>
-            <button type="submit">Send Message</button>
-          </form>
-        </div>
+       <div class="contact-form">
+  <form action="https://formspree.io/f/mblgankz" method="POST">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+    </div>
+    <input type="text" name="subject" placeholder="Subject" style="margin-top: 16px" required />
+    <textarea name="message" placeholder="Message" style="margin-top: 16px; height: 128px" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</div>
+
       </div>
     </section>
 
